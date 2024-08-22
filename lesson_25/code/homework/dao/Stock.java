@@ -1,4 +1,4 @@
-package lesson25.homework.dao;
+package homework.dao;
 //Интерфейс Stock c методами:
 // добавить деталь на склад
 // найти по barCode
@@ -8,7 +8,7 @@ package lesson25.homework.dao;
 // средняя масса всех деталей
 // найти детали с размером от и до
 
-import lesson25.homework.model.Detail;
+import homework.model.Detail;
 
 public interface Stock {
 
@@ -16,13 +16,13 @@ public interface Stock {
 
     Detail findDetail(long barcode);
 
-    Detail updateDetailInfo ();
+    Detail updateDetailInfo (Detail detail);
 
     Detail removeDetail(long barcode);
 
-    double totalWeight(double weight);
+    double totalWeight();
 
-    Detail averageWeight(double weight);
+    double averageWeight();
 
     Detail findDetailBySize(double size);
 

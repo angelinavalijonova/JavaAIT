@@ -1,6 +1,6 @@
-package lesson25.homework.dao;
+package homework.dao;
 
-import lesson25.homework.model.Detail;
+import homework.model.Detail;
 
 public class StockImpl implements Stock {
     Detail[] details;
@@ -14,10 +14,11 @@ public class StockImpl implements Stock {
         for (int i = 0; i < details.length; i++) {
             if (details[i] == null){
                 details[i] = detail;
+                return detail;
             }
 
         }
-        return detail;
+        return null;
     }
 
     @Override
@@ -30,7 +31,13 @@ public class StockImpl implements Stock {
     }
 
     @Override
-    public Detail updateDetailInfo() {
+    public Detail updateDetailInfo(Detail detail) {
+        for (int i = 0; i < details.length; i++) {
+            if(details[i] != null && details[i].getBarCode() == detail.getBarCode()) {
+                details[i] = detail;
+                return detail;
+            }
+        }
         return null;
     }
 
@@ -48,22 +55,34 @@ public class StockImpl implements Stock {
     }
 
     @Override
-    public double totalWeight(double weight) {
+    public double totalWeight() {
         double totalWeight = 0.0;
-        for (int i = 0; i < details.length; i++) {
-           totalWeight = details[i].getWeight();
-           totalWeight ++;
+        for(int i = 0; i < details.length; i++) {
+            if(details[i] != null)
+                totalWeight += details[i].getWeight();
         }
        return totalWeight;
     }
 
     @Override
-    public Detail averageWeight(double weight) {
-        return null;
+    public double averageWeight() {
+        int count = 0;
+        double totalWeight = this.totalWeight();
+        for (int i = 0; i < details.length; i++) {
+            if(details[i] != null)
+            count++;
+        }
+
+        return totalWeight/count;
     }
 
     @Override
     public Detail findDetailBySize(double size) {
+        for(int i = 0; i < details.length; i ++){
+            if(details[i] != null && details[i].getSize() == size)
+               return details[i];
+        }
         return null;
     }
-}
+    }
+

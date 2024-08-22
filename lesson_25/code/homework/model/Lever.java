@@ -1,4 +1,4 @@
-package lesson25.homework.model;
+package homework.model;
 //Дочерний класс Lever (рычаг) с полями: power: double
 
 public class Lever extends Detail {

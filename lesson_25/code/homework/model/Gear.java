@@ -1,4 +1,4 @@
-package lesson25.homework.model;
+package homework.model;
 
 //Дочерний класс Gear (шестеренка) с полями: radius: double tooth: int
  public class Gear extends Detail {

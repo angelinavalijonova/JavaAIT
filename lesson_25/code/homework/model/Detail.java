@@ -1,5 +1,4 @@
-package lesson25.homework.model;
-
+package homework.model;
 import java.util.Objects;
 
 //Класс Detail (деталь) с полями: barCode: long size: double material: String vendor: String weight: double
